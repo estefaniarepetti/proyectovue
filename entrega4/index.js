@@ -1,6 +1,5 @@
 const { createApp } = Vue;
 
-// Definimos el componente MyComponent
 const MyComponent = {
   props: ['info'],
   template: `
@@ -12,7 +11,7 @@ const MyComponent = {
   `
 };
 
-// Instanciamos la aplicación Vue
+
 const app = createApp({
   data() {
     return {
