@@ -1,66 +1,35 @@
-body{
-    text-align: center;
-    background: #ECF0F1;
-    padding-top: 20px;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #00a4e3;
+  background-color: #222222;
+}
+
+.btn {
+  background: #00a4e3;
+}
+
+.btn:hover {
+  background-color: #e6ecf0 ;
+}
+
+.btn:active {
+  background-color: #00a4e3;
+}
+
+a {
+  color: #00a4e3 ;
+}
+
+a:hover {
+  color: #e6ecf0;
+}
+
+@media (max-width: 576px) {
+  .card-columns {
+      padding: 4rem;
+      column-count: 2;
   }
-  
-  .boton{
-        text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-              text-align:center;
-              text-decoration: none;
-        font-family: 'Helvetica Neue', Helvetica, sans-serif;
-        display:inline-block;
-              color: #FFF;
-              background: #7F8C8D;
-              padding: 7px 20px;
-              white-space: nowrap;
-              -webkit-border-radius: 5px;
-              -moz-border-radius: 5px;
-              border-radius: 100px;
-              margin: 10px 5px;
-              -webkit-transition: all 0.2s ease-in-out;
-              -ms-transition: all 0.2s ease-in-out;
-              -moz-transition: all 0.2s ease-in-out;
-              -o-transition: all 0.2s ease-in-out;
-              transition: all 0.2s ease-in-out;
-  }
-     
-  .azul{
-    background: #3498DB;
-    box-shadow: 0px 5px 0px 0px #2980B9;
-  }
-  
-  .azul:hover{
-    background: #39a0e5;
-  }
-  
-  .azul:active{
-    box-shadow: 0px 2px 0px 0px #2980B9;
-  }
-  
-  .verde{
-    background: #2ECC71;
-    box-shadow: 0px 5px 0px 0px #27AE60;
-  }
-  
-  .verde:hover{
-    background: #32db78;
-  }
-  
-  .verde:active{
-    box-shadow: 0px 2px 0px 0px #27AE60;
-  }
-  
-  .rojo{
-    background: #E74C3C;
-    box-shadow: 0px 5px 0px 0px #C0392B;
-  }
-  
-  .rojo:hover{
-    background: #ff5242;
-  }
-  
-  .rojo:active{
-    box-shadow: 0px 2px 0px 0px #C0392B;
-  }
-  
+}

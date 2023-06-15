@@ -1,0 +1,65 @@
+[
+    {
+      "name": "CAMPERA SALIDA KAPPA 2023",
+      "img": "https://locademia.racingclub.com.ar/Image/0/600_750-K2381K6PW-KF12_campera_de_salida_cuello_Mao_black-dk_grey_talle_M_1.jpg",
+      "price": 9800,
+      "desc": "CAMPERA SALIDA CUELLO MAO KAPPA 2023.",
+      "stock": 8
+    },  
+    {
+      "name": "BUZO DAMA OVERSIZE AZUL",
+      "img": "https://locademia.racingclub.com.ar/Image/0/1200_1200-SUTLA_buzo_azul_dama_talle_S_5.jpg",
+      "price": 16000,
+      "desc": "Buzo de algodón de dama OVERSIZE, y en la espalda RACING CLUB, AVELLANEDA.",
+      "stock": 10
+    },
+    {
+      "name": "CAMISETA OFICIAL KAPPA 2023",
+      "img": "https://locademia.racingclub.com.ar/Image/0/600_600-K2341I4UW-KA03A_kombat%20regular%20home_white%20azure_talle%20S_11.jpg",
+      "price": 25000,
+      "desc": "CAMISETA SALIDA CUELLO KAPPA 2023.",
+      "stock": 15
+    },
+    {
+      "name": "CAMISETA MUJER",
+      "img": "https://locademia.racingclub.com.ar/Image/0/600_750-K2331F6DW-K005P_woman_away_player_jersey_2022_black_talle_S_1.jpg",
+      "price": 10500,
+      "desc": "Camiseta personalizada, no puede cancelarse, ni cambiarse. Se recomienda estar 100% seguro de su compra.",
+      "stock": 9
+    },
+    {
+      "name": "CAMISETA ALTERNATIVA 2021",
+      "img": "https://locademia.racingclub.com.ar/Image/0/600_750-K236165MW-K801_kombat_third_player_jersey_regular_2021_white_talle_S_1.jpg",
+      "price": 12500,
+      "desc": "MEDIDAS XS S M L XL 2XL 3XL SISA 45,5 48,5 51,5 55 58 61,5 66 LARGO 67 69,5 71,5 73,5 76 75,5 79.",
+      "stock": 5
+    },
+    {
+      "name": "TERMO ACERO LUMILAGRO",
+      "img": "https://locademia.racingclub.com.ar/Image/0/600_750-LUM1376_termo_3.jpg",
+      "price": 23000,
+      "desc": "TERMO ACERO ESCUDO LUMILAGRO",
+      "stock": 4
+    },
+    {
+      "name": "CAMPERA SALIDA KAPPA 2023",
+      "img": "https://locademia.racingclub.com.ar/Image/0/600_750-K2381K6PW-KF12_campera_de_salida_cuello_Mao_black-dk_grey_talle_M_1.jpg",
+      "price": 34000,
+      "desc": "Milanesa del club con guarnición. Muzzarella, jamón cocido, rodajas de tomate fresco, huevo frito y perejil.",
+      "stock": 12
+    },
+    {
+      "name": "CAMISETA NIÑO",
+      "img": "https://locademia.racingclub.com.ar/Image/0/600_750-K2331F83W-K001_third_player_jersey_2022_nene_white_talle_6_1.jpg",
+      "price": 9750,
+      "desc": "Confeccionada con una tela elástica que brinda mayor ajuste al cuerpo y mantiene seco al jugador. posee elastano brindando mayor confort y movimientos.",
+      "stock": 9
+    },
+    {
+        "name": "BUZO TRICOLOR ",
+        "img": "https://locademia.racingclub.com.ar/Image/0/600_750-GR2137_Giorgio_Redaelli_buzo_con_capucha_talle_S_1.jpg",
+        "price": 29000,
+        "desc": "BUZO TRICOLOR GIORGIO REDAELLI.",
+        "stock": 9
+      }
+]

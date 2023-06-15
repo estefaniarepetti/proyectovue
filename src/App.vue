@@ -1,32 +1,92 @@
 
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="App vue"/>
-    <EntregaComp /> 
+    <NavbarComponent
+      :cartQ="cartQuantity"
+      :logged="logged"
+      @goToLogin="onGoToLogin"
+      @backHome="onBackHome"
+    />
+    <div v-if="show">
+      <LoginComponent @logged="onLoginSubmit" />
+    </div>
+    <div v-else>
+      <ListadoComponentVue
+        :items="listado"
+        :itemsCart="itemsCarrito"
+        @addToCart="onAddToCart"
+      />
+    </div>
+    <CarritoComponent :items="itemsCarrito" @updateStock="updateStock" />
+    <FooterComponent />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
-import EntregaComp from './components/EntregaComp.vue';
+import NavbarComponent from "./components/NavbarComponent.vue";
+import ListadoComponentVue from "./components/ListadoComponent.vue";
+import CarritoComponent from "./components/CarritoComponent.vue";
+import FooterComponent from "./components/FooterComponent.vue";
+import LoginComponent from "./components/LoginComponent.vue";
+
+import items from "@/assets/json/items.json";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld,
-    EntregaComp
-  }
-}
+    NavbarComponent,
+    ListadoComponentVue,
+    CarritoComponent,
+    FooterComponent,
+    LoginComponent,
+  },
+  data() {
+    return {
+      listado: items,
+      itemsCarrito: [],
+      logged: false,
+      show: false,
+    };
+  },
+  computed: {
+    cartQuantity() {
+      return this.itemsCarrito.length;
+    },
+  },
+  methods: {
+    onLoginSubmit() {
+      this.show = false;
+      this.logged = true;
+    },
+    onGoToLogin() {
+      this.show = true;
+    },
+    onBackHome() {
+      this.show = false;
+    },
+    isInCart(i) {
+      return this.itemsCarrito.find(({ item }) => item.name === i.name);
+    },
+    updateStock(i) {
+      this.listado.forEach((item) => {
+        if (item.name === i.name) {
+          console.log(`stock: ${item.stock}, q: ${i.q}`);
+          item.stock = item.stock - i.q;
+        }
+      });
+
+      // this.itemsCarrito.forEach((item) => {
+      //   if (item.name === i.name) {
+      //     item.q++;
+      //   }
+      // });
+    },
+    onAddToCart(item) {
+      this.updateStock(item);
+      this.itemsCarrito.push(item);
+    },
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
