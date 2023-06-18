@@ -6,7 +6,7 @@
             >App de pedidos</b-navbar-brand
           >
 
-          <p class="icon"> <img src="https://locademia.racingclub.com.ar/Pubs/Sites/Default/Images/logo2.png"> </p>
+          <p class="icon"> <img src="https://locademia.racingclub.com.ar/Pubs/Sites/Default/Images/logo2.png" class="img"> </p>
           <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
   
           <b-collapse id="nav-collapse" is-nav>
@@ -131,6 +131,10 @@
     font-size: 1rem;
     text-align: center;
     margin-top: 2px;
+  }
+
+  .img{
+    width:40px;
   }
   
   </style>
