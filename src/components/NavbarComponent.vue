@@ -3,7 +3,7 @@
       <b-navbar class="navbar navbar-expand-lg fixed-top navbar-scroll">
         <div class="container-fluid">
           <b-navbar-brand href="#" @click="backToHome"
-            >Haz Tu Compra</b-navbar-brand
+            >Racing Club de Avellaneda</b-navbar-brand
           >
           <p class="icon"> <a href="#">  <img src="https://locademia.racingclub.com.ar/Pubs/Sites/Default/Images/logo2.png" class="img"> </a> </p>
           <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
