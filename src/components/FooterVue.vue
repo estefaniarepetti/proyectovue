@@ -14,6 +14,9 @@
             <a href="/#">Contacto </a>
       
           </p>
+          <div>
+            <p> App Creada por · Estefania Repetti  · </p>
+          </div>
         </div>
       </footer>
     </div>
@@ -30,11 +33,4 @@
   color: white;
 }
 
-.social-icons {
-  margin-left: 10px;
-}
-
-.social-icons a {
-  margin-right: 10px;
-}
   </style>
