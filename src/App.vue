@@ -5,9 +5,7 @@
       :logged="logged"
       @goToLogin="onGoToLogin"
       @backHome="onBackHome"
-    />
-  
-    
+    />    
     <div v-if="show">
       <LoginComponent @logged="onLoginSubmit" />
     </div>
@@ -19,7 +17,8 @@
       />
     </div>
     <CarritoCompras :items="itemsCarrito" @updateStock="updateStock" />
-    <FooterVue />
+    <DetallesComponent />
+        <FooterVue />
   </div>
 </template>
 
@@ -29,6 +28,7 @@ import ListadoCamiseta from "./components/ListadoCamiseta.vue";
 import CarritoCompras from "./components/CarritoCompras.vue";
 import FooterVue from "./components/FooterVue.vue";
 import LoginComponent from "./components/LoginComponent.vue";
+import DetallesComponent from "./components/DetallesComponent.vue";
 
 import items from "@/assets/json/items.json";
 
@@ -40,8 +40,8 @@ export default {
     CarritoCompras,
     FooterVue,
     LoginComponent,
-    
-  },
+    DetallesComponent,
+},
   data() {
     return {
       listado: items,

@@ -11,7 +11,9 @@
             ·
             <a href="/#">Sucursales </a>
             ·
-            <a href="/#">Contacto </a>
+            <a href="./LoginComponent.vue">Contacto </a>
+
+          
       
           </p>
           <div>

@@ -1,184 +1,84 @@
 <template>
   <div>
-    <b-container fluid>
-      <b-row>
-        <b-col></b-col>
-        <b-col>
-          <!-- login form -->
-          <b-form v-if="show" @submit="onSubmit" @reset="onReset">
-            <b-form-group
-              id="input-group-1"
-              label="Email:"
-              label-for="input-1"
-              description="No compartiremos tu informacion."
-            >
-              <b-form-input
-                id="input-1"
-                v-model="form.email"
-                type="email"
-                placeholder="Tu email"
-                required
-              ></b-form-input>
-            </b-form-group>
-
-            <b-form-group
-              id="input-group-2"
-              label="Password:"
-              label-for="input-2"
-            >
-              <b-form-input
-                id="input-2"
-                v-model="form.pass"
-                placeholder="Tu contraseña"
-                type="password"
-                required
-              ></b-form-input>
-            </b-form-group>
-
-            <b-form-group id="select-group-3">
-              <p>
-                ¿Todavia no estás registrado? Registrate
-                <a href="#" v-on:click="changeForm">aquí.</a>
-              </p>
-            </b-form-group>
-
-            <b-button type="submit" variant="primary">Ingresar</b-button>
-            <b-button type="reset" variant="danger">Reset</b-button>
-          </b-form>
-
-          <!-- registration form -->
-          <b-form v-else @submit="onSubmit" @reset="onReset">
-            <b-form-group
-              id="input-group-1"
-              label="Email:"
-              label-for="input-1"
-              description="No compartiremos tu informacion"
-            >
-              <b-form-input
-                id="input-1"
-                v-model="form.email"
-                type="email"
-                placeholder="Tu email, que será tu user"
-                required
-              ></b-form-input>
-            </b-form-group>
-
-            <b-form-group
-              id="input-group-2"
-              label="Nombre:"
-              label-for="input-2"
-            >
-              <b-form-input
-                id="input-2"
-                v-model="form.name"
-                type="text"
-                placeholder="Tu nombre"
-                required
-              ></b-form-input>
-            </b-form-group>
-
-            <b-form-group
-              id="input-group-3"
-              label="Apellido:"
-              label-for="input-3"
-            >
-              <b-form-input
-                id="input-3"
-                v-model="form.surname"
-                type="text"
-                placeholder="Tu apellido"
-                required
-              ></b-form-input>
-            </b-form-group>
-
-            <b-form-group
-              id="input-group-4"
-              label="Password:"
-              label-for="input-4"
-            >
-              <b-form-input
-                id="input-4"
-                v-model="form.pass"
-                placeholder="Ingresar contraseña"
-                type="password"
-                required
-              ></b-form-input>
-            </b-form-group>
-
-            <b-form-group id="select-group-3">
-              <p>
-                ¿Ya tenés una cuenta? Ingresá
-                <a href="#" v-on:click="changeForm">aquí.</a>
-              </p>
-            </b-form-group>
-
-            <b-button type="submit" variant="primary">Ingresar</b-button>
-            <b-button type="reset" variant="danger">Reset</b-button>
-          </b-form>
-        </b-col>
-        <b-col></b-col>
-      </b-row>
-    </b-container>
+    <h1>Contactanos</h1>
+    <form @submit.prevent="submitForm">
+      <div>
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" placeholder="Nombre" type="text" v-model="nombre" required>
+      </div>
+      <div>
+        <label for="apellido">Apellido:</label>
+        <input id="apellido" placeholder="Apellido" type="text" v-model="apellido" required>
+      </div>
+      <div>
+        <label for="sexo">Sexo:</label>
+        <select id="sexo" v-model="sexo" required>
+          <option value="">Seleccione</option>
+          <option value="masculino">Masculino</option>
+          <option value="femenino">Femenino</option>
+          <option value="otro">No me identifico con ninguno</option>
+        </select>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input id="email" type="email" placeholder="Email" v-model="email" required>
+      </div>
+      <div>
+        <label for="contrasena">Contraseña:</label>
+        <input id="contrasena" placeholder="Contraseña" type="password" v-model="contrasena" required>
+      </div>
+      <div>
+        <label for="socio">¿Sos socio?</label>
+        <input id="socio" type="checkbox" v-model="esSocio">
+      </div>
+      <div v-if="esSocio">
+        <label for="numSocio">Número de socio:</label>
+        <input id="numSocio" type="number"  placeholder="Numero de Socio" v-model="numSocio" required>
+      </div>
+      <div>
+        <button type="submit" class="btn">Enviar</button>
+      </div>
+    </form>
   </div>
 </template>
 
 <script>
 export default {
-  name: "LoginComponent",
   data() {
     return {
-      form: {
-        name: "",
-        surname: "",
-        email: "",
-        pass: "",
-      },
-      show: true,
+      nombre: '',
+      apellido: '',
+      sexo: '',
+      email: '',
+      contrasena: '',
+      esSocio: false,
+      numSocio: ''
     };
   },
   methods: {
-    onSubmit(event) {
-      event.preventDefault();
-      console.log("usuario a loguear: ", JSON.stringify(this.form));
-      this.$emit("logged", this.form);
-    },
-    onReset(event) {
-      event.preventDefault();
-
-      // Reset our form values
-      this.form.name = "";
-      this.form.surname = "";
-      this.form.email = "";
-      this.form.pass = "";
-
-      // Trick to reset/clear native browser form validation state
-      this.show = false;
-      this.$nextTick(() => {
-        this.show = true;
-      });
-    },
-    changeForm() {
-      this.show = !this.show;
-    },
-  },
+    submitForm() {
+      // datos del formulario
+      console.log('Formulario enviado');
+      console.log('Nombre:', this.nombre);
+      console.log('Apellido:', this.apellido);
+      console.log('Sexo:', this.sexo);
+      console.log('Email:', this.email);
+      console.log('Contraseña:', this.contrasena);
+      console.log('¿Sos socio?', this.esSocio);
+      if (this.esSocio) {
+        console.log('Número de socio:', this.numSocio);
+      }
+    }
+  }
 };
 </script>
 
 <style scoped>
-.cabecera {
-  height: 80px;
+form div {
+  margin-bottom: 10px;
 }
-
-form {
-  color: antiquewhite;
-  margin-top: 130px;
-  margin-bottom: 70px;
-}
-
-button {
-  margin-right: 1rem;
-  margin-left: 1rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+label {
+  display: block;
+  font-weight: bold;
 }
 </style>

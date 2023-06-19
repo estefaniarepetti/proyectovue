@@ -1,33 +1,29 @@
 <template>
-    <div>
+    <div id="form">
       <b-navbar class="navbar navbar-expand-lg fixed-top navbar-scroll">
         <div class="container-fluid">
           <b-navbar-brand href="#" @click="backToHome"
             >Haz Tu Compra</b-navbar-brand
           >
-          <p class="icon"> <img src="https://locademia.racingclub.com.ar/Pubs/Sites/Default/Images/logo2.png" class="img"> </p>
+          <p class="icon"> <a href="#">  <img src="https://locademia.racingclub.com.ar/Pubs/Sites/Default/Images/logo2.png" class="img"> </a> </p>
           <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-          <b-nav-item-dropdown text="Temporadas" right>
-        <b-dropdown-item href="#">Año 2023</b-dropdown-item>
-        <b-dropdown-item href="#">Año 2022</b-dropdown-item>
-        <b-dropdown-item href="#">Año 2021</b-dropdown-item>
-        <b-dropdown-item href="#">Año</b-dropdown-item>
-      </b-nav-item-dropdown>
+          <b-dropdown text="Informacion" right>
+            <div id="info">
+        <b-dropdown-item  href="#">Temporada 2023</b-dropdown-item>
+        <b-dropdown-item  href="#">Temporadaras Anteriores </b-dropdown-item>
+        <b-dropdown-item   href="#">Accesorios</b-dropdown-item>
+        <b-dropdown-item href="#">¿Como me hago socio?</b-dropdown-item>
+      </div>
+    </b-dropdown>
 
-
+      <b-navbar-nav>
+        <b-nav-item href="#"  id="nav-collapse" is-nav @click="goToLogin">Contactanos </b-nav-item>
+       
+      </b-navbar-nav>
   
           <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav class="ml-auto">
-              <b-button class="nav-btn" @click="goToLogin">
-                <b-icon
-                  v-if="logged"
-                  icon="emoji-laughing"
-                  class="nav-icon"
-                ></b-icon>
-                <b-icon v-else icon="person-circle" class="nav-icon"></b-icon>
-              </b-button>
-  
               <b-button v-b-toggle.sidebar-cart class="nav-btn">
                 <b-icon icon="cart" class="nav-icon"></b-icon>
                 <div v-if="cartQ > 0" class="cart-dot">
@@ -89,7 +85,11 @@
   .nav-icon {
     color: white;
   }
-  
+  #info{
+    background-color: #00a4e3 ;
+    border-color: #00a4e3;
+  }
+
   button {
     border-radius: 50%;
     margin-left: 0.5rem;
@@ -125,6 +125,8 @@
 
   .img{
     width:40px;
+    margin-right: 10px;
   }
+
   
   </style>
