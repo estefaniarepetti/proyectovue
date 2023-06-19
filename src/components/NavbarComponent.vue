@@ -5,19 +5,20 @@
           <b-navbar-brand href="#" @click="backToHome"
             >Haz Tu Compra</b-navbar-brand
           >
-
           <p class="icon"> <img src="https://locademia.racingclub.com.ar/Pubs/Sites/Default/Images/logo2.png" class="img"> </p>
           <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+          <b-nav-item-dropdown text="Temporadas" right>
+        <b-dropdown-item href="#">Año 2023</b-dropdown-item>
+        <b-dropdown-item href="#">Año 2022</b-dropdown-item>
+        <b-dropdown-item href="#">Año 2021</b-dropdown-item>
+        <b-dropdown-item href="#">Año</b-dropdown-item>
+      </b-nav-item-dropdown>
+
+
   
           <b-collapse id="nav-collapse" is-nav>
-            <b-navbar-nav>
-              <b-nav-item href="#">Camisetas 2023</b-nav-item>
-              <b-nav-item href="#">Otros</b-nav-item>
-            </b-navbar-nav>
-  
             <b-navbar-nav class="ml-auto">
-          
-  
               <b-button class="nav-btn" @click="goToLogin">
                 <b-icon
                   v-if="logged"
