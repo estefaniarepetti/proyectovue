@@ -36,7 +36,7 @@
   import FiltersComponent from "./FiltersComponent.vue";
   
   export default {
-    name: "InfoComponent",
+    name: "InfoDetalle",
     props: {
       item: {
         Object,

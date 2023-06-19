@@ -1,4 +1,3 @@
-
 <template>
   <div id="app">
     <NavbarComponent
@@ -7,26 +6,28 @@
       @goToLogin="onGoToLogin"
       @backHome="onBackHome"
     />
+  
+    
     <div v-if="show">
       <LoginComponent @logged="onLoginSubmit" />
     </div>
     <div v-else>
-      <ListadoComponentVue
+      <ListadoCamiseta
         :items="listado"
         :itemsCart="itemsCarrito"
         @addToCart="onAddToCart"
       />
     </div>
-    <CarritoComponent :items="itemsCarrito" @updateStock="updateStock" />
-    <FooterComponent />
+    <CarritoCompras :items="itemsCarrito" @updateStock="updateStock" />
+    <FooterVue />
   </div>
 </template>
 
 <script>
 import NavbarComponent from "./components/NavbarComponent.vue";
-import ListadoComponentVue from "./components/ListadoComponent.vue";
-import CarritoComponent from "./components/CarritoComponent.vue";
-import FooterComponent from "./components/FooterComponent.vue";
+import ListadoCamiseta from "./components/ListadoCamiseta.vue";
+import CarritoCompras from "./components/CarritoCompras.vue";
+import FooterVue from "./components/FooterVue.vue";
 import LoginComponent from "./components/LoginComponent.vue";
 
 import items from "@/assets/json/items.json";
@@ -35,10 +36,11 @@ export default {
   name: "App",
   components: {
     NavbarComponent,
-    ListadoComponentVue,
-    CarritoComponent,
-    FooterComponent,
+    ListadoCamiseta,
+    CarritoCompras,
+    FooterVue,
     LoginComponent,
+    
   },
   data() {
     return {
@@ -46,6 +48,7 @@ export default {
       itemsCarrito: [],
       logged: false,
       show: false,
+      user: {},
     };
   },
   computed: {
@@ -54,9 +57,10 @@ export default {
     },
   },
   methods: {
-    onLoginSubmit() {
+    onLoginSubmit(user) {
       this.show = false;
       this.logged = true;
+      this.user = user;
     },
     onGoToLogin() {
       this.show = true;
@@ -75,11 +79,6 @@ export default {
         }
       });
 
-      // this.itemsCarrito.forEach((item) => {
-      //   if (item.name === i.name) {
-      //     item.q++;
-      //   }
-      // });
     },
     onAddToCart(item) {
       this.updateStock(item);

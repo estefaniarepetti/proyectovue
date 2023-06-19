@@ -3,7 +3,7 @@
       <b-navbar class="navbar navbar-expand-lg fixed-top navbar-scroll">
         <div class="container-fluid">
           <b-navbar-brand href="#" @click="backToHome"
-            >App de pedidos</b-navbar-brand
+            >Haz Tu Compra</b-navbar-brand
           >
 
           <p class="icon"> <img src="https://locademia.racingclub.com.ar/Pubs/Sites/Default/Images/logo2.png" class="img"> </p>
@@ -12,22 +12,11 @@
           <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav>
               <b-nav-item href="#">Camisetas 2023</b-nav-item>
-              <b-nav-item href="#" disabled>Otros</b-nav-item>
+              <b-nav-item href="#">Otros</b-nav-item>
             </b-navbar-nav>
   
             <b-navbar-nav class="ml-auto">
-              <!--
-              <b-nav-form>
-                <b-form-input
-                  size="sm"
-                  class="mr-sm-2"
-                  placeholder="Search"
-                ></b-form-input>
-                <b-button size="sm" class="my-2 my-sm-0" type="submit">
-                  <b-icon icon="search" class="nav-icon"></b-icon>
-                </b-button>
-              </b-nav-form>
-              -->
+          
   
               <b-button class="nav-btn" @click="goToLogin">
                 <b-icon
