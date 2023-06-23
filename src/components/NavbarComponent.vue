@@ -1,65 +1,78 @@
 <template>
-    <div id="form">
-      <b-navbar class="navbar navbar-expand-lg fixed-top navbar-scroll">
-        <div class="container-fluid">
-          <b-navbar-brand href="#" @click="backToHome"
-            >Racing Club de Avellaneda</b-navbar-brand
-          >
-          <p class="icon"> <a href="#">  <img src="https://locademia.racingclub.com.ar/Pubs/Sites/Default/Images/logo2.png" class="img"> </a> </p>
-          <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+  <div id="form">
+    <b-navbar class="navbar navbar-expand-lg fixed-top navbar-scroll">
+      <div class="container-fluid">
+        <b-navbar-brand href="#" @click="backToHome">
+          Racing Club de Avellaneda
+        </b-navbar-brand>
+        <p class="icon">
+          <a href="#">
+            <img
+              src="https://locademia.racingclub.com.ar/Pubs/Sites/Default/Images/logo2.png"
+              class="img"
+            />
+          </a>
+        </p>
+        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-          <b-dropdown text="Informacion" right>
-            <div id="info">
-        <b-dropdown-item  href="#">Temporada 2023</b-dropdown-item>
-        <b-dropdown-item  href="#">Temporadaras Anteriores </b-dropdown-item>
-        <b-dropdown-item   href="#">Accesorios</b-dropdown-item>
-        <b-dropdown-item href="#">¿Como me hago socio?</b-dropdown-item>
+        <b-dropdown text="Informacion" right>
+          <div id="info">
+            <b-dropdown-item href="#">Temporada 2023</b-dropdown-item>
+            <b-dropdown-item href="#">Temporadaras Anteriores</b-dropdown-item>
+            <b-dropdown-item href="#">Accesorios</b-dropdown-item>
+            <b-dropdown-item href="#">¿Como me hago socio?</b-dropdown-item>
+          </div>
+        </b-dropdown>
+
+        <b-navbar-nav>
+          <b-nav-item href="#" id="nav-collapse" is-nav @click="goToLogin">
+            Login
+          </b-nav-item>
+          <b-nav-item @click="toggleForm">Formulario</b-nav-item>
+        </b-navbar-nav>
+
+        <b-collapse id="nav-collapse" is-nav>
+          <b-navbar-nav class="ml-auto">
+            <b-button v-b-toggle.sidebar-cart class="nav-btn">
+              <b-icon icon="cart" class="nav-icon"></b-icon>
+              <div v-if="cartQ > 0" class="cart-dot">
+                <p class="cart-total">{{ cartQ }}</p>
+              </div>
+            </b-button>
+          </b-navbar-nav>
+        </b-collapse>
       </div>
-    </b-dropdown>
+    </b-navbar>
+  </div>
+</template>
 
-      <b-navbar-nav>
-        <b-nav-item href="#"  id="nav-collapse" is-nav @click="goToLogin">Contactanos </b-nav-item>
-       
-      </b-navbar-nav>
-  
-          <b-collapse id="nav-collapse" is-nav>
-            <b-navbar-nav class="ml-auto">
-              <b-button v-b-toggle.sidebar-cart class="nav-btn">
-                <b-icon icon="cart" class="nav-icon"></b-icon>
-                <div v-if="cartQ > 0" class="cart-dot">
-                  <p class="cart-total">{{ cartQ }}</p>
-                </div>
-              </b-button>
-            </b-navbar-nav>
-          </b-collapse>
-        </div>
-      </b-navbar>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    name: "NavbarComponent",
-    components: {},
-    props: {
-      cartQ: {
-        Number,
-      },
-      logged: {
-        Boolean,
-        required: true,
-      },
+<script>
+export default {
+  name: "NavbarComponent",
+  props: {
+    cartQ: {
+      type: Number,
     },
-    methods: {
-      goToLogin() {
-        this.$emit("goToLogin", true);
-      },
-      backToHome() {
-        this.$emit("backHome");
-      },
+    logged: {
+      type: Boolean,
+      required: true,
     },
-  };
-  </script>
+  },
+  methods: {
+    goToLogin() {
+      this.$emit("goToLogin", true);
+    },
+    backToHome() {
+      this.$emit("backHome");
+    },
+    toggleForm() {
+      this.$emit("toggleForm");
+    },
+  },
+};
+</script>
+
+
   
   <style scoped>
   .navbar {
