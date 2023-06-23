@@ -5,7 +5,7 @@
           <b-col></b-col>
           <b-col>
             <!-- Formulario -->
-            <b-form @submit="onSubmit" @reset="onReset">
+            <b-form @submit="onSubmit" @reset="onFormReset">
               <b-form-group id="input-group-1" label="Nombre:" label-for="input-1">
                 <b-form-input
                   id="input-1"
@@ -58,6 +58,23 @@
           </b-col>
           <b-col></b-col>
         </b-row>
+        <b-table striped hover :items="users" v-if="users.length > 0">
+          <template #cell(nombre)="row">
+            {{ row.item.nombre }}
+          </template>
+          <template #cell(apellido)="row">
+            {{ row.item.apellido }}
+          </template>
+          <template #cell(edad)="row">
+            {{ row.item.edad }}
+          </template>
+          <template #cell(socio)="row">
+            {{ row.item.socio }}
+          </template>
+          <template #cell(numeroSocio)="row">
+            {{ row.item.numeroSocio }}
+          </template>
+        </b-table>
       </b-container>
     </div>
   </template>
@@ -73,29 +90,38 @@
           edad: null,
           socio: null,
           numeroSocio: ""
-        }
+        },
+        users: []
       };
     },
     methods: {
       onSubmit(event) {
         event.preventDefault();
-        // Realiza las acciones necesarias al enviar el formulario
-        // Puedes acceder a los valores ingresados en this.form
-        console.log(this.form);
+        // Agregar el usuario actual al arreglo de usuarios
+        this.users.push({ ...this.form });
+        // Limpiar el formulario
+        this.form = {
+          nombre: "",
+          apellido: "",
+          edad: null,
+          socio: null,
+          numeroSocio: ""
+        };
       },
-      onReset(event) {
-        event.preventDefault();
-        this.form.nombre = "";
-        this.form.apellido = "";
-        this.form.edad = null;
-        this.form.socio = null;
-        this.form.numeroSocio = "";
-        // Resetea los valores de los campos adicionales si los tienes
+      onFormReset() {
+        // Resetea el formulario
+        this.form = {
+          nombre: "",
+          apellido: "",
+          edad: null,
+          socio: null,
+          numeroSocio: ""
+        };
       }
     }
   };
   </script>
-  
+
   <style scoped>
   .cabecera {
     height: 80px;
