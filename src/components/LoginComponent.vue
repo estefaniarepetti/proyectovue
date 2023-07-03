@@ -5,7 +5,7 @@
         <b-col></b-col>
         <b-col>
           <!-- login form -->
-          <b-form v-if="show" @submit="onSubmit" @reset="onReset">
+          <b-form v-if="show" @submit="login" @reset="onReset">
             <b-form-group
               id="input-group-1"
               label="Email:"
@@ -46,7 +46,7 @@
           </b-form>
 
           <!-- registration form -->
-          <b-form v-else @submit="onSubmit" @reset="onReset">
+          <b-form v-else @submit="register" @reset="onReset">
             <b-form-group
               id="input-group-1"
               label="Email:"
@@ -121,6 +121,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 
 export default {
   name: "LoginComponent",
@@ -136,10 +137,61 @@ export default {
     };
   },
   methods: {
-    onSubmit(event) {
+    login(event) {
+  event.preventDefault();
+  const { email, pass } = this.form;
+
+  axios.post('https://64a229af0079ce56e2db9c89.mockapi.io/vue/:endpoint', {
+    email,
+    contraseña: pass
+  })
+  .then(response => {
+
+    console.log(response.data);
+    this.$emit('logged', response.data);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+  if (email === "admin" && pass === "1234") {
+    const user = {
+      id: 1,
+      email: "admin",
+      name: "Administrador"
+    };
+    this.$emit('logged', user);
+  } else {
+    axios.post('https://64a229af0079ce56e2db9c89.mockapi.io/vue/:endpoint', {
+      email,
+      contraseña: pass
+    })
+    .then(response => {
+      console.log(response.data);
+      this.$emit('logged', response.data);
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  }
+},
+
+    register(event) {
       event.preventDefault();
-      console.log("usuario a loguear: ", JSON.stringify(this.form));
-      this.$emit("logged", this.form);
+      const { name, surname, email, pass } = this.form;
+
+      axios.post('https://64a229af0079ce56e2db9c89.mockapi.io/vue/:endpoint', {
+        nombre: name,
+        apellido: surname,
+        email,
+        contraseña: pass
+      })
+      .then(response => {
+        console.log(response.data);
+        this.$emit('registered', response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
     },
     onReset() {
       this.form = {
@@ -154,8 +206,8 @@ export default {
     },
   },
 };
-
 </script>
+
 
 <style scoped>
 .cabecera {

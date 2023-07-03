@@ -29,6 +29,7 @@
             Login
           </b-nav-item>
           <b-nav-item @click="toggleForm">Formulario</b-nav-item>
+    
         </b-navbar-nav>
 
         <b-collapse id="nav-collapse" is-nav>
@@ -57,6 +58,7 @@ export default {
       type: Boolean,
       required: true,
     },
+    
   },
   methods: {
     goToLogin() {
@@ -69,6 +71,8 @@ export default {
       this.$emit("toggleForm");
     },
   },
+
+  
 };
 </script>
 
